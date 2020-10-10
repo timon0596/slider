@@ -1,0 +1,24 @@
+$slider: #b5e7a0
+$handle: #86af49
+$brd: #e3eaa7
+.slider
+	position: relative
+	width: 100%
+	height: 10px
+	background: $slider
+
+	.handle
+		z-index: 1
+		position: absolute
+		left: 0
+		bottom: -150%
+		transform: translate(-50%, 25%)
+
+	&_vertical .handle
+		left: 50%
+		bottom: 0
+		transform: translate(-25%, 50%)
+
+	&_vertical
+		height: 100%
+		width: 10px
