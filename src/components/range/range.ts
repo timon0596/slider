@@ -9,6 +9,6 @@ export class Range {
 
   counterDimension=''
 
-  constructor(private options:any) {
+  constructor() {
   }
 }

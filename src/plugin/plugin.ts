@@ -26,7 +26,7 @@ import { Controller } from '../mvc/controller/controller';
     const controller = new Controller(initOptions);
 
     return new Proxy(this, {
-      get(target: any, prop) {
+      get(target: any, prop:any) {
         switch (prop) {
           case 'controller':
             return controller;

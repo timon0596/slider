@@ -9,6 +9,6 @@ export class Scale {
 
   $limits:any
 
-  constructor(private options:any) {
+  constructor() {
   }
 }
