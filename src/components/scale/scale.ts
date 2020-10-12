@@ -9,6 +9,22 @@ export class Scale {
 
   $limits:any
 
-  constructor() {
+  constructor(private options:any) {
+    this.$scale.append(this.$delimiters);
+  }
+
+  addDelimeters(slider:any) {
+    const amount = Math.round(slider.$slider[0][this.options.vertical ? 'offsetHeight' : 'offsetWidth'] / 15);
+    console.log(amount);
+    const v = this.options.values;
+    if (typeof v[0] === 'number') {
+      for (let i = 0; i < amount; i++) {
+        this.$delimiters.append($('<div>', { class: 'scale__delimiter' }));
+      }
+    } else {
+      v.forEach((el:string, i:number) => {
+        this.$delimiters.append($('<div>', { class: 'scale__delimiter' }));
+      });
+    }
   }
 }

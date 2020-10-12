@@ -13,6 +13,9 @@ export class Controller {
     this.model.defineSlider(this.view.slider);
     this.model.defineSinglestep();
     this.model.defineStepsize();
+
+    this.view.scale.addDelimeters(this.view.slider);
+
     this.view.$handles.forEach((el:any, i:number) => {
       el.mousedown({ i }, this.handleHandleMousedown);
     });
@@ -29,9 +32,9 @@ export class Controller {
   handleWindowMousemove(e:any) {
     if (this.mousedown) {
       const i = this.model.currentHandle;
-      const pos = this.model.position(e);
+      const { pos, title } = this.model.position(e);
       this.model.updatePosition({ pos, i });
-      this.view.setHandle({ pos, i });
+      this.view.setHandle({ pos, i, title });
     }
   }
 

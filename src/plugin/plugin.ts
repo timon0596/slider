@@ -4,7 +4,7 @@ import { Controller } from '../mvc/controller/controller';
   $.fn.timonSliderPlugin = function (options?: any) {
     const defaultOptions: any = {
       vertical: false,
-      step: 2,
+      step: 1,
       handles: 1,
       title: true,
       range: true,

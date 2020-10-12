@@ -12,7 +12,7 @@ export class View {
 
   range=new Range()
 
-  scale=new Scale()
+  scale=new Scale(this.options)
 
   constructor(private options:any) {
     this.init();
@@ -31,8 +31,9 @@ export class View {
     this.$handles = this.handles.map((el:any) => el.$handle);
   }
 
-  setHandle({ pos, i }:any) {
+  setHandle({ pos, i, title }:any) {
     this.$handles[i].css(this.side(), `${pos}px`);
+    this.handles[i].$title.text(title);
   }
 
   side() {

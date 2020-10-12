@@ -27,7 +27,7 @@ export class Model {
       position = e.pageX - this.slider.offsetLeft;
     }
     const difference = position - this.pos[i];
-    const condition = Math.round(Math.abs(difference) / this.stepsize) > 1;
+    const condition = Math.round(Math.abs(difference) / this.stepsize) >= 1;
     if (condition) {
       pos = Math.round(difference / this.stepsize) * this.stepsize;
     } else {
@@ -40,8 +40,17 @@ export class Model {
     } else {
       result = this.pos[i] + pos;
     }
+    const title = this.title(result);
+    const resultObject = { pos: result, title };
+    return resultObject;
+  }
 
-    return result;
+  title(pos:number) {
+    const result = Math.round(pos / this.singleStep);
+    if (typeof this.options.values[0] === 'string') {
+      return this.options.values[result];
+    }
+    return result + this.options.values[0];
   }
 
   updatePosition({ pos, i }:any) {

@@ -1,6 +1,10 @@
 import 'jquery';
 import './plugin/plugin';
 
-$('.slider-wrapper').each((i,el)=>{
-  $(el).timonSliderPlugin()
-})
+const config = [
+  { values: [100, 600], step: 11 },
+];
+$('.slider-wrapper').each((i, el) => {
+  const options = config[i] || {};
+  $(el).timonSliderPlugin(options);
+});
